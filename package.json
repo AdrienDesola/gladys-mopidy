@@ -26,5 +26,8 @@
   "homepage": "https://github.com/AdrienDesola/gladys-mopidy#readme",
   "dependencies": {
     "mopidy": "^0.5.0"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.0"
   }
 }

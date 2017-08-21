@@ -1,13 +1,16 @@
 module.exports = function (sails) {
 
-    var Mopidy = require("mopidy");
+  var setup = require('./lib/setup.js');
+  var init = require('./lib/init.js');
+  var music = require('./lib/music/index.js');
 
-    var mopidy = new Mopidy({
-      webSocketUrl: "ws://localhost:6680/mopidy/ws/"
-    });
+  typeof gladys === "object" && gladys.on('ready', function() {
+    init();
+  });
 
-    return {
-        Mopidy,
-        mopidy,
-    };
+  return {
+    setup,
+    init,
+    music
+  };
 };
