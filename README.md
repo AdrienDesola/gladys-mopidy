@@ -100,7 +100,7 @@ sudo systemctl enable mopidy
 
 ## Edit config file
 ```
-sudo nano/etc/mopidy/mopidy.conf 
+sudo nano /etc/mopidy/mopidy.conf 
 ```
 
 ### Mopidy service useful commands
