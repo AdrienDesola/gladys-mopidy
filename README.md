@@ -1,84 +1,20 @@
+# Gladys Mopidy
+## Installation
+### Step: 1
 
-# DEMO
+install mopidy https://docs.mopidy.com/en/latest/installation/
 
-const Mopidy = require("mopidy");
+### Step: 2
 
-const playMyFavoritePlaylist = (uri) => {
-  mopidy.playlists.getPlaylists()
-  .then(playlists => playlists.find( playlist => playlist.uri === uri ))
-  .then(playlist => playlist && playlist.tracks ? playlist : Promise.reject(`playlist ${uri} not found`))
-  .then(playlist => playlist.tracks)
-  .then(mopidy.tracklist.add)
-  .then(tracklist => tracklist[0])
-  .then(mopidy.playback.play)
-  .catch(console.error);
-};
+Install the module in Gladys
+advanced mode : Mopidy  1.0.0   https://github.com/AdrienDesola/gladys-mopidy.git  mopidy
 
-const mopidy = new Mopidy({
-  webSocketUrl: "ws://192.168.1.46:6680/mopidy/ws/"
-});
+add Gladys settings mopidy_url: <mopidy_ip>:<mopidy_port> par defaut localhost:6680
 
-mopidy.on("state:online", () => {
-  mopidy.playlists.getPlaylists().then(console.log)
-  // playMyFavoritePlaylist('spotify:user:iloveplaylists:playlist:1V93SRHKAhfJ83uFY8YtAg')
-});
+Reboot Gladys
 
-
-# API
-
-tracklist
-  .add(tracks=None, at_position=None, uri=None, uris=None)
-  .clear()
-  .getLength()
-  .getTracks()
-  .getNextTlid()
-  .getPreviousTlid()
-  .getRandom()
-  .setRandom(value)
-  .getRepeat()
-  .setRepeat(value)
-  .getSingle()
-  .setSingle(value)
-
-playback
-  .play(tl_track=None, tlid=None)
-  .next()
-  .previous()
-  .stop()
-  .pause()
-  .resume()
-  .getCurrentTlTrack()
-  .getCurrentTrack()
-  .getStreamTitle()
-  .getTimePosition()
-  .getState()
-  .setState(new_state) // PLAYING, PAUSED, or STOPPED.
-
-library
-  .browse(uri)
-  .search(query=None, uris=None, exact=False, **kwargs) // {'any': ['a']} {'artist': ['xyz']}
-  .lookup(uri=None, uris=None)
-  .refresh(uri=None)
-playlists
-  .refresh(uri_scheme=None)
-mixer
-  .getMute()
-  .setMute(mute)
-  .getVolume()
-  .setVolume(volume)
-history
-  .get_history()
-  .get_length()
-on(event, callback)
-
-volume_changed
-tracklist_changed
-track_playback_started
-track_playback_resumed
-track_playback_paused
-track_playback_ended
-stream_title_changed
-playlists_loaded
-playback_state_changed
-options_changed
-mute_changed
+## Use in Gladys scripts
+```
+gladys.music.playPlaylist({ uri: 'spotify:album:4ydl8Ci7OsndhI2ALnrpIv' })
+.then(gladys.music.setVolume(100));
+```
