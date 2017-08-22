@@ -98,6 +98,11 @@ gladys.music.playPlaylist({ uri: 'spotify:album:4ydl8Ci7OsndhI2ALnrpIv' })
 sudo systemctl enable mopidy
 ```
 
+## Edit config file
+```
+sudo nano/etc/mopidy/mopidy.conf 
+```
+
 ### Mopidy service useful commands
 ```
 sudo systemctl start mopidy
