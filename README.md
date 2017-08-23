@@ -63,10 +63,10 @@ zeroconf = Mopidy HTTP server on $hostname
 enabled = false
 ```
 
-To see what’s the effective configuration for your Mopidy installation, you 
+To see what’s the effective configuration for your Mopidy installation, you
 can run:
-``` 
- mopidy config 
+```
+ mopidy config
 ```
 
 
@@ -93,6 +93,12 @@ gladys.music.playPlaylist({ uri: 'spotify:album:4ydl8Ci7OsndhI2ALnrpIv' })
 .then(gladys.music.setVolume(100));
 ```
 
+## Add music Gladys BOX
+
+Go in "Settings" view and Box tab.
+Add a musique Box.
+Now if back in "Dashbard" view you can see your music box and the current music status.
+
 ## Mopidy as a service
 ```
 sudo systemctl enable mopidy
@@ -100,7 +106,7 @@ sudo systemctl enable mopidy
 
 ## Edit config file
 ```
-sudo nano /etc/mopidy/mopidy.conf 
+sudo nano /etc/mopidy/mopidy.conf
 ```
 
 ### Mopidy service useful commands
@@ -108,12 +114,12 @@ sudo nano /etc/mopidy/mopidy.conf
 sudo systemctl start mopidy
 sudo systemctl stop mopidy
 sudo systemctl restart mopidy
+sudo mopidyctl config
 ```
 
 ### Mopidy service check status
 ```
 sudo systemctl status mopidy
 ```
-
 
 Bravo !
