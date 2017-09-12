@@ -33,11 +33,11 @@ apt-cache search mopidy
 sudo apt-get install mopidy-spotify
 ```
 
-### Configuration
+## Edit config file
+```
+sudo nano /etc/mopidy/mopidy.conf
+```
 
-```
-nano ~/.config/mopidy/mopidy.conf
-```
 #### Config example
 
 ```
@@ -66,13 +66,14 @@ enabled = false
 To see what’s the effective configuration for your Mopidy installation, you
 can run:
 ```
- mopidy config
+sudo mopidyctl config
 ```
 
 
-## Start Mopidy
+## Start Mopidy as a service
 ```
-  mopidy
+sudo systemctl enable mopidy
+sudo systemctl start mopidy
 ```
 
 ## Mopidy gladys installation
@@ -80,12 +81,16 @@ can run:
 Back to Gladys interface.
 Install the module in "Modules" view in advanced mode :
 
-Mopidy  1.0.0   https://github.com/AdrienDesola/gladys-mopidy.git  mopidy
+Mopidy  1.0.0   https://github.com/AdrienDesola/gladys-mopidy.git  mopidy
 
 in "Settings" view
 add mopidy_url: <mopidy_ip>:<mopidy_port>
 
 **Reboot Gladys**
+
+Click on "Configuration" button in Modules menu to create Mopidy device
+Check in Devices menu if Mopidy appear
+
 
 ## Try it in Gladys scripts
 ```
@@ -99,15 +104,6 @@ Go in "Settings" view and Box tab.
 Add a musique Box.
 Now if back in "Dashbard" view you can see your music box and the current music status.
 
-## Mopidy as a service
-```
-sudo systemctl enable mopidy
-```
-
-## Edit config file
-```
-sudo nano /etc/mopidy/mopidy.conf
-```
 
 ### Mopidy service useful commands
 ```
