@@ -73,6 +73,7 @@ sudo mopidyctl config
 ## Start Mopidy as a service
 ```
 sudo systemctl enable mopidy
+sudo systemctl start mopidy
 ```
 
 ## Mopidy gladys installation
